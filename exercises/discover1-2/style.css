@@ -1,0 +1,15 @@
+.alert.alert--seen {
+    opacity: 0.5;
+}
+
+.alert.alert--error {
+    background-color: red;
+    color: white;
+}
+
+
+.alert {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em 1em 1em 0;
+}

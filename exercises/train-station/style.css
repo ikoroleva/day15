@@ -1,0 +1,57 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    max-width: 1000px;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.departures {
+    width: 100%;
+    border: 1px solid #EEEEEE;
+}
+
+.departures_header {
+    display: flex;
+    width: 100%;
+    background: black;
+    padding: 1em 0;
+    color: white;
+    /* font-size: 1em; */
+    text-transform: uppercase;
+}
+
+.departures_body {}
+
+
+.table_row {
+    display: flex;
+    width: 100%;
+    padding: 1em 0;
+}
+
+.table_row:nth-of-type(odd) {
+    background-color: #EEEEEE;
+}
+
+.table_data,
+.header_item {
+    flex: 1 1 15%;
+    text-align: center;
+    /* min-width: 17%; */
+}
+
+/* .header_item {
+    color: white;
+    font-size: 1.2em;
+} */
