@@ -86,20 +86,59 @@ departures2.forEach((item) => {
     <td class="table_data">${item.train}</td>
     <td class="table_data">${item.no}</td>
     <td class="table_data">${item.to}</td>
-    <td class="table_data">${item.status}</td>
+    <td class="table_data status">${item.status}</td>
     <td class="table_data">${item.track}</td>
     <td class="table_data"><button class="delay_btn">Delay</button></td>`
 
 
-    const delayBtn = document.querySelector('.delay_btn');
+    const delayBtn = tableRow.querySelector('.delay_btn');
 
-    delayBtns.forEach((item) => {
+    //console.log(delayBtn);
+    const delayStatus = tableRow.querySelector('.status');
 
-        item.addEventListener('click', () => {
+    //console.log(delayStatus);
 
+
+    delayBtn.addEventListener('click', () => {
+
+        //tableRow.classList.toggle('delayed');
+
+        delayStatus.innerHTML = ` <input class="input_el" type="text" placeholder="min of the delay">`
+
+        delayStatus.addEventListener('keydown', (e) => {
+            //console.log(e);
+
+            if (e.key === 'Enter') {
+                const inputField = delayStatus.querySelector(".input_el");
+                //console.log(inputField);
+                const inputFieldVal = Number(inputField.value);
+
+                if (inputFieldVal != false && inputFieldVal > 0 && inputFieldVal !== 'NaN') {
+                    delayStatus.innerHTML = `${inputFieldVal} min delay`;
+                    item.status = inputFieldVal + "min delay";
+                    tableRow.classList.add('delayed');
+                } else {
+                    delayStatus.innerText = "On Time";
+                    tableRow.classList.remove('delayed');
+                }
+
+            }
 
         })
+
+        // if (item.status === 'Delayed') {
+        //     item.status = 'On Time';
+        //     delayStatus.innerText = "On Time";
+
+        // } else if (item.status === 'On Time') {
+
+        //     item.status = "Delayed";
+        //     delayStatus.innerText = "Delayed";
+
+        // }
+
     })
+})
 
     // Object.keys(item).forEach((key) => {
 
@@ -109,7 +148,6 @@ departures2.forEach((item) => {
 
     //     tableData.innerHTML = item[key];
 
-})
 
 
 
